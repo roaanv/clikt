@@ -330,4 +330,13 @@ class ArgumentTest {
         }
         assertThrows<IllegalArgumentException> { C() }
     }
+
+    @Test
+    fun `arg can start with forward slash`() {
+        class C : NoRunCliktCommand() {
+            val x by argument()
+        }
+
+        C().parse(splitArgv("/foo"))
+    }
 }
