@@ -339,4 +339,14 @@ class ArgumentTest {
 
         C().parse(splitArgv("/foo"))
     }
+
+    @Test
+    fun `arg can start with backslash`() {
+        class C : NoRunCliktCommand() {
+            val x by argument()
+        }
+
+        C().parse(splitArgv("\\foo"))
+    }
+
 }
